@@ -20,6 +20,7 @@ export default function GameOver({ score, rankings }: Props) {
         alignItems: 'center',
         padding: '32px 24px 16px',
         overflowY: 'auto',
+        touchAction: 'pan-y',
       }}
     >
       <h1
@@ -54,10 +55,14 @@ export default function GameOver({ score, rankings }: Props) {
           fontSize: '12px',
           letterSpacing: '2px',
           marginBottom: '24px',
+          textAlign: 'center',
+          lineHeight: '2',
           animation: 'blink 1.2s step-start infinite',
         }}
       >
-        PRESS SPACE TO RETRY
+        TAP TO RETRY
+        <br />
+        <span style={{ fontSize: '10px', letterSpacing: '1px' }}>or PRESS SPACE</span>
       </p>
 
       <div

@@ -80,6 +80,9 @@ export function useGame() {
   const keysRef = useRef<Set<string>>(new Set());
   const gameStateRef = useRef<GameState>('start');
 
+  const pressKey = useCallback((key: string) => keysRef.current.add(key), []);
+  const releaseKey = useCallback((key: string) => keysRef.current.delete(key), []);
+
   const endGame = useCallback(() => {
     const finalScore = scoreRef.current;
     setScore(finalScore);
@@ -177,5 +180,5 @@ export function useGame() {
     setRankings(loadRankings());
   }, []);
 
-  return { gameState, gameStateRef, score, rankings, update, playerRef, obstaclesRef, scoreRef };
+  return { gameState, gameStateRef, score, rankings, update, playerRef, obstaclesRef, scoreRef, startGame, pressKey, releaseKey };
 }
